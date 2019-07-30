@@ -12,24 +12,26 @@
   <section class="search">
     <form action="/search" method="GET">
       <input type="text" name="userinput" placeholder="What's going on?" class="form__userinput" id="form__userinput">
-      <input type="submit" class="form__searchbtn" id="form__searchbtn">
+      <input type="button" class="form__searchbtn" id="form__searchbtn" value="submit">
     </form>
   </section>
 
-  <section class="news-section">
-    <div class="container">
-      <!-- <div class="news__image">
+  <section class="news-section" id="news-section">
+    <div class="container" id="container">
+      <div class="news__article">
+        <div class="news__image" id="news__image">
+          
+        </div>
+        <div class="news__details" id="news__details">
+      
+        </div>
 
       </div>
-
-      <div class="news__details">
-
-      </div> -->
-
     </div>
   </section>
   <footer class="footer">
     <a href="https://newsapi.org/" class='footer__link'>Powered by NewsAPI.org</a>
   </footer>
+  <script src="js/dom.js"></script>
 </body>
 </html>
