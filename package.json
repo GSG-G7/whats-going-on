@@ -7,7 +7,13 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./tests/test.js | tap-spec",
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "killrun": "npm run killport && npm run dev",
+    "killport": "fuser -k 8000/tcp",
+    "cover": "nyc --reporter=lcov node ./tests/test.js ",
+    "coverage": "nyc node ./tests/test.js "
   },
   "repository": {
     "type": "git",
@@ -20,6 +26,7 @@
   },
   "homepage": "https://github.com/GSG-G7/whats-going-on#readme",
   "dependencies": {
+    "env2": "^2.2.2",
     "express": "^4.17.1",
     "request": "^2.88.0"
   },
