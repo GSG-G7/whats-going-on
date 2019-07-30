@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/GSG-G7/whats-going-on#readme",
   "dependencies": {
+    "env2": "^2.2.2",
     "express": "^4.17.1",
     "request": "^2.88.0"
   },
