@@ -57,7 +57,7 @@ userInput.addEventListener('keyup', (e) => {
 
 searchBtn.addEventListener('click', () => {
   const input = userInput.value;
-  fetch(`/search:query${input}`)
+  fetch(`/search/${input}`)
     .then(res => res.json())
     .then(renderArticles);
 });
