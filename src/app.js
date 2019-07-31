@@ -22,8 +22,8 @@ app.get('/latest', (req, res) => {
   });
 });
 
-app.get('/search/:query', (req, res) => {
-  request(`https://newsapi.org/v2/everything?q=${req.params.query}&apiKey=${process.env.NEWS_API_KEY}`, (error, resp, body) => {
+app.get('/search', (req, res) => {
+  request(`https://newsapi.org/v2/everything?q=${req.query.query}&apiKey=${process.env.NEWS_API_KEY}`, (error, resp, body) => {
     res.send(JSON.parse(body));
   });
 });
