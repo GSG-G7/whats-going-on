@@ -1,7 +1,7 @@
 const selector = id => document.querySelector(`#${id}`);
 const create = tag => document.createElement(`${tag}`);
-const userInput = selector('form__userinput');
-const searchBtn = selector('form__searchbtn');
+const userInput = selector('search__input');
+const searchBtn = selector('search__btn');
 const loader = selector('lds-hourglass');
 const togglehideLoader = () => loader.classList.toggle('hide');
 
