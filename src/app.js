@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const request = require('request');
+// eslint-disable-next-line import/no-unresolved
 require('env2')('.env');
 
 const app = express();
@@ -15,6 +16,12 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/latest', (req, res) => {
   request(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_API_KEY}`, (error, response, body) => {
+    res.send(JSON.parse(body));
+  });
+});
+
+app.get('/search/:query', (req, res) => {
+  request(`https://newsapi.org/v2/everything?q=${req.params.query}&apiKey=${process.env.NEWS_API_KEY}`, (error, resp, body) => {
     res.send(JSON.parse(body));
   });
 });

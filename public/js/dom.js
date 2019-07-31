@@ -26,7 +26,7 @@ const renderArticles = (details) => {
     header.appendChild(articleLink);
 
     const publishTime = create('h4');
-    publishTime.textContent = `published at ${getHoursAgo(e.publishedAt)} hours ago`;
+    publishTime.textContent = `published ${getHoursAgo(e.publishedAt)} hours ago`;
     contentDiv.appendChild(publishTime);
     const newsContent = create('p');
     newsContent.textContent = e.description;
@@ -40,7 +40,6 @@ const renderArticles = (details) => {
   newContainer.className = 'container';
   selector('news-section').replaceChild(newContainer, selector('container'));
 };
-
 
 searchBtn.addEventListener('click', () => {
   const input = userInput.value;
