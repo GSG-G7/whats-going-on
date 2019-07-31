@@ -61,13 +61,11 @@ searchBtn.addEventListener('click', () => {
   fetch(`/search/${input}`)
     .then(res => res.json())
     .then(renderArticles)
-    .then(togglehideLoader)
-    .catch(alert('Something went wrong :( <br>Try again later'));
+    .then(togglehideLoader);
 });
 
 togglehideLoader();
 fetch('/latest')
   .then(res => res.json())
   .then(renderArticles)
-  .then(togglehideLoader)
-  .catch(alert('Something went wrong :( <br>Try again later'));
+  .then(togglehideLoader);
