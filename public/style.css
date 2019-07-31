@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -13,46 +14,154 @@ body {
 
 .search {
   display: flex;
-  /* width: 90%; */
-  margin: 3%;
   height: 3rem;
   text-align: center;
 }
-.form{
+
+.form {
   display: flex;
   width: 100%
 }
+
 .form__userinput {
-  flex-grow: 80;
-  padding: 1rem;
+  flex-grow: 7;
   height: 3rem;
   font-size: 1rem;
 }
 
 .form__searchbtn {
-  flex-grow: 20;
+  flex-grow: 1;
   height: 3rem;
   font-size: 1rem;
 }
 
-.news-section{
-  
+.news-section {
+  align-self: center;
+  padding: 0 1%;
+  text-align: left;
+}
+
+.container {
   align-self: center;
 }
-.news-article{
-  margin: .5rem;
 
+
+.news__article {
+  margin: .5rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.footer {
+.news__article a:link,
+.news__article a:visited {
+  color: rgba(221, 36, 36, 0.87);
+  text-decoration-line: none;
+}
+
+.news__details div {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.news__details div h4 {
+  margin: 0 4px;
+}
+
+.news__image {
+  max-height: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.news__img {
+  max-width: 100%;
+  height: auto;
+}
+
+.news__details {
+  padding: 0rem 1rem;
+}
+
+.news .footer {
   position: absolute;
   bottom: 0%;
-  width:100%;
+  width: 100%;
 }
 
 .footer__link {
   align-self: flex-end
 }
-@media (min-width: 600px){
 
+/* loader */
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.hide {
+  display: none;
+}
+
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 6px;
+  box-sizing: border-box;
+  border: 26px solid #06579e;
+  border-color: #06579e transparent #06579e transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  100% {
+    transform: rotate(1800deg);
+  }
+}
+
+@media (min-width: 375px) {
+  .form__userinput {
+    padding: 1rem;
+  }
+  .search {
+    margin: 3%;
+  }
+
+}
+@media (min-width: 800px) {
+
+  .news-section {
+    padding: 0 7%;
+  }
+
+
+  .news__article {
+    flex-direction: row;
+  }
+
+  .news__image {
+    width: 35%;
+  }
+
+  .news__details {
+    width: 65%;
+    padding: 0rem 1rem;
+  }
+
+}
 }
