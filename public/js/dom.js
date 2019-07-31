@@ -40,7 +40,7 @@ const renderArticles = (details) => {
     newsContent.textContent = e.description;
     contentDiv.appendChild(newsContent);
     contentDiv.className = 'news__details';
-    
+
     div.appendChild(imageDiv);
     div.appendChild(contentDiv);
     div.className = 'news__article';
