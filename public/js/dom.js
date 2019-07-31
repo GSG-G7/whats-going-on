@@ -66,7 +66,7 @@ userInput.addEventListener('keydown', (e) => {
   const input = e.target.value;
   if (e.key === 'Enter') {
     togglehideLoader();
-    fetch(`/search/${input}`)
+    fetch(`/search?query=${input}`)
       .then(res => res.json())
       .then(renderArticles)
       .then(togglehideLoader);
