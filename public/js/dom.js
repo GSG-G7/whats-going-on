@@ -1,3 +1,4 @@
+
 const selector = id => document.querySelector(`#${id}`);
 const create = tag => document.createElement(`${tag}`);
 const userInput = selector('search__input');
@@ -5,13 +6,7 @@ const searchBtn = selector('search__btn');
 const loader = selector('lds-hourglass');
 const togglehideLoader = () => loader.classList.toggle('hide');
 
-const getpublishTimeAgo = (d) => {
-  const numOfHours = Math.ceil((Date.now() - Date.parse(d)) / 3600000);
-  if (numOfHours >= 24) {
-    return `${Math.floor(numOfHours / 24)} days ago`;
-  }
-  return `${numOfHours} hours ago`;
-};
+
 const renderArticles = (details) => {
   const newContainer = create('div');
 
@@ -60,6 +55,16 @@ const renderArticles = (details) => {
   selector('news-section').replaceChild(newContainer, selector('container'));
 };
 
+userInput.addEventListener('keydown', (e) => {
+  const input = e.target.value;
+  if (e.key === 'Enter') {
+    togglehideLoader();
+    fetch(`/search/${input}`)
+      .then(res => res.json())
+      .then(renderArticles)
+      .then(togglehideLoader);
+  }
+});
 
 searchBtn.addEventListener('click', () => {
   togglehideLoader();
