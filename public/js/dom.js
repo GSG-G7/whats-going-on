@@ -4,6 +4,8 @@ const selector = id => document.querySelector(`#${id}`);
 const create = tag => document.createElement(`${tag}`);
 const userInput = selector('form__userinput');
 const searchBtn = selector('form__searchbtn');
+const loader = selector('lds-hourglass');
+const togglehideLoader = () => loader.classList.toggle('hide');
 
 const getHoursAgo = d => Math.ceil((Date.now() - Date.parse(d.replace('T', ' ').replace('Z', ' '))) / 3600000);
 
@@ -17,6 +19,7 @@ const renderArticles = (details) => {
 
     const image = create('img');
     image.src = e.urlToImage;
+    image.className = 'news__img';
     imageDiv.className = 'news__image';
     imageDiv.appendChild(image);
 
@@ -36,6 +39,7 @@ const renderArticles = (details) => {
     newsContent.textContent = e.description;
     contentDiv.appendChild(newsContent);
     contentDiv.className = 'news__details';
+
     div.appendChild(imageDiv);
     div.appendChild(contentDiv);
     div.className = 'news__article';
@@ -46,12 +50,12 @@ const renderArticles = (details) => {
   newContainer.className = 'container';
   selector('news-section').replaceChild(newContainer, selector('container'));
 };
-userInput.addEventListener('keyup', (e) => {
-  const input = e.target.value;
-});
+
 
 searchBtn.addEventListener('click', () => {
+  togglehideLoader();
   fetch(url)
     .then(res => res.json())
-    .then(renderArticles);
+    .then(renderArticles)
+    .then(togglehideLoader);
 });
