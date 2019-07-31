@@ -57,7 +57,8 @@ searchBtn.addEventListener('click', () => {
     .then(togglehideLoader);
 });
 
-
+togglehideLoader();
 fetch('/latest')
   .then(res => res.json())
-  .then(renderArticles);
+  .then(renderArticles)
+  .then(togglehideLoader);
