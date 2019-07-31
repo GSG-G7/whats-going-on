@@ -1,5 +1,5 @@
 # Whats going on
-
+![travis](https://travis-ci.org/GSG-G7/whats-going-on.svg?branch=master)
 # Team:
  - Sajeda Ismail
  - Alaa Yasin
@@ -21,7 +21,12 @@
 - **Forth,** Separated the team into two pairs and started working on writing the tests and the route functions (home, statics, latest, search, errors) right afterwards
 - **Fifth,** We rendered the API results in the webpage
 - **Sixth** Imad styled our website, and he was like this:
+<br>
+
 ![css](https://i.imgur.com/m2kL6ar.gif)
+
+<br>
+
 - **Sixth,** Deployed our server on heroku platform
 - **Seventh,** Refactored our code
 
