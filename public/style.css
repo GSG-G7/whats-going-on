@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -51,7 +52,7 @@ body {
   display: flex;
 }
 .news__article a{
-  
+
 }
 .news__image {
   width: 35%;
