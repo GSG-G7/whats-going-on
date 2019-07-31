@@ -16,6 +16,7 @@ const renderArticles = (details) => {
 
     const image = create('img');
     image.src = e.urlToImage;
+    image.setAttribute('alt', e.title);
     image.className = 'news__img';
     imageDiv.className = 'news__image';
     imageDiv.appendChild(image);
