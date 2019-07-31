@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const request = require('request');
+const { client, server } = require('./controllers/error');
+
 // eslint-disable-next-line import/no-unresolved
 require('env2')('.env');
 
@@ -25,5 +27,8 @@ app.get('/search/:query', (req, res) => {
     res.send(JSON.parse(body));
   });
 });
+app.use(client);
+app.use(server);
+
 
 module.exports = app;
