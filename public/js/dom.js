@@ -29,9 +29,14 @@ const renderArticles = (details) => {
     articleLink.textContent = e.title;
     header.appendChild(articleLink);
 
+    const dateDiv = create('div');
     const publishTime = create('h4');
-    publishTime.textContent = `published ${getHoursAgo(e.publishedAt)} hours ago`;
-    contentDiv.appendChild(publishTime);
+    const clockIcon = create('i');
+    clockIcon.className = 'far fa-clock';
+    publishTime.textContent = `${getHoursAgo(e.publishedAt)} hours ago`;
+    dateDiv.appendChild(clockIcon);
+    dateDiv.appendChild(publishTime);
+    contentDiv.appendChild(dateDiv);
     const newsContent = create('p');
     newsContent.textContent = e.description;
     contentDiv.appendChild(newsContent);
@@ -41,6 +46,7 @@ const renderArticles = (details) => {
     div.appendChild(contentDiv);
     div.className = 'news__article';
     newContainer.appendChild(div);
+    newContainer.appendChild(create('hr'));
   });
 
   newContainer.id = 'container';
