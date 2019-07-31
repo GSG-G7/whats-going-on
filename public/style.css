@@ -15,21 +15,16 @@ body {
 .search {
   display: flex;
   height: 3rem;
-  text-align: center;
+  text-align: center; 
 }
 
-.form {
-  display: flex;
-  width: 100%
-}
-
-.form__userinput {
+.search__input {
   flex-grow: 7;
   height: 3rem;
   font-size: 1rem;
 }
 
-.form__searchbtn {
+.search__btn {
   flex-grow: 1;
   height: 3rem;
   font-size: 1rem;
@@ -135,7 +130,7 @@ body {
 }
 
 @media (min-width: 375px) {
-  .form__userinput {
+  .search__userinput {
     padding: 1rem;
   }
   .search {
@@ -163,5 +158,4 @@ body {
     padding: 0rem 1rem;
   }
 
-}
 }
