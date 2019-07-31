@@ -16,13 +16,13 @@ const renderArticles = (details) => {
     const contentDiv = create('div');
 
     const image = create('img');
-    image.className = 'news__image';
     image.src = e.urlToImage;
+    imageDiv.className = 'news__image';
     imageDiv.appendChild(image);
 
     const header = create('h1');
     contentDiv.appendChild(header);
-    
+
     const articleLink = create('a');
     articleLink.href = e.url;
     articleLink.textContent = e.title;
@@ -35,11 +35,13 @@ const renderArticles = (details) => {
     const newsContent = create('p');
     newsContent.textContent = e.description;
     contentDiv.appendChild(newsContent);
-
+    contentDiv.className = 'news__details';
     div.appendChild(imageDiv);
     div.appendChild(contentDiv);
+    div.className = 'news__article';
     newContainer.appendChild(div);
   });
+
   newContainer.id = 'container';
   newContainer.className = 'container';
   selector('news-section').replaceChild(newContainer, selector('container'));
