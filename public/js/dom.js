@@ -6,6 +6,13 @@ const searchBtn = selector('search__btn');
 const loader = selector('lds-hourglass');
 const togglehideLoader = () => loader.classList.toggle('hide');
 
+const getpublishTimeAgo = (publishDate) => {
+  const numOfHours = Math.ceil((Date.now() - Date.parse(publishDate)) / 3600000);
+  if (numOfHours >= 24) {
+    return `${Math.floor(numOfHours / 24)} days ago`;
+  }
+  return `${numOfHours} hours ago`;
+};
 
 const renderArticles = (details) => {
   const newContainer = create('div');
