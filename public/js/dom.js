@@ -76,7 +76,7 @@ userInput.addEventListener('keydown', (e) => {
 searchBtn.addEventListener('click', () => {
   togglehideLoader();
   const input = userInput.value;
-  fetch(`/search/${input}`)
+  fetch(`/search?query=${input}`)
     .then(res => res.json())
     .then(renderArticles)
     .then(togglehideLoader);

@@ -4,7 +4,7 @@ const app = require('../../src/app');
 
 const searchPageTest = test('search route returns status code 200', (t) => {
   supertest(app)
-    .get('/search/amd')
+    .get('/search?query=amd')
     .expect(200)
     .expect('Content-Type', /json/)
     .end((err, res) => {
