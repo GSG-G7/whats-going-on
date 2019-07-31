@@ -1,4 +1,5 @@
 const url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=12b90d1e4e264edf8eedf0be2f0992a2';
+// eslint-disable-next-line no-console
 console.log(url);
 const selector = id => document.querySelector(`#${id}`);
 const create = tag => document.createElement(`${tag}`);
@@ -22,14 +23,14 @@ const renderArticles = (details) => {
 
     const header = create('h1');
     contentDiv.appendChild(header);
-    
+
     const articleLink = create('a');
     articleLink.href = e.url;
     articleLink.textContent = e.title;
     header.appendChild(articleLink);
 
     const publishTime = create('h4');
-    publishTime.textContent = `published at ${getHoursAgo(e.publishedAt)} hours ago`;
+    publishTime.textContent = `published ${getHoursAgo(e.publishedAt)} hours ago`;
     contentDiv.appendChild(publishTime);
 
     const newsContent = create('p');
@@ -45,6 +46,7 @@ const renderArticles = (details) => {
   selector('news-section').replaceChild(newContainer, selector('container'));
 };
 userInput.addEventListener('keyup', (e) => {
+  // eslint-disable-next-line no-unused-vars
   const input = e.target.value;
 });
 
