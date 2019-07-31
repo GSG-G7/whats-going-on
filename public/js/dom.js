@@ -45,6 +45,7 @@ const renderArticles = (details) => {
     div.appendChild(contentDiv);
     div.className = 'news__article';
     newContainer.appendChild(div);
+    newContainer.appendChild(create('hr'));
   });
 
   newContainer.id = 'container';
