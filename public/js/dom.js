@@ -6,6 +6,7 @@ const loader = selector('lds-hourglass');
 const togglehideLoader = () => loader.classList.toggle('hide');
 
 const getHoursAgo = d => Math.ceil((Date.now() - Date.parse(d.replace('T', ' ').replace('Z', ' '))) / 3600000);
+
 const renderArticles = (details) => {
   const newContainer = create('div');
 
@@ -54,11 +55,13 @@ searchBtn.addEventListener('click', () => {
   fetch(`/search/${input}`)
     .then(res => res.json())
     .then(renderArticles)
-    .then(togglehideLoader);
+    .then(togglehideLoader)
+    .catch(alert('Something went wrong :( <br>Try again later'));
 });
 
 togglehideLoader();
 fetch('/latest')
   .then(res => res.json())
   .then(renderArticles)
-  .then(togglehideLoader);
+  .then(togglehideLoader)
+  .catch(alert('Something went wrong :( <br>Try again later'));
