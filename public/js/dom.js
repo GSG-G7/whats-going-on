@@ -67,7 +67,7 @@ const renderArticles = (details) => {
 
 function fetchInput() {
   const input = userInput.value;
-  togglehideLoader();
+  toggleHideLoader();
   fetch(`/search?query=${input}`)
     .then(res => res.json())
     .then(renderArticles)
