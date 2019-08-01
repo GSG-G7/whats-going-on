@@ -4,7 +4,7 @@ const create = tag => document.createElement(`${tag}`);
 const userInput = selector('search__input');
 const searchBtn = selector('search__btn');
 const loader = selector('lds-hourglass');
-const togglehideLoader = () => loader.classList.toggle('hide');
+const toggleHideLoader = () => loader.classList.toggle('hide');
 
 const getpublishTimeAgo = (publishDate) => {
   const numOfHours = Math.ceil((Date.now() - Date.parse(publishDate)) / 3600000);
@@ -65,25 +65,25 @@ const renderArticles = (details) => {
 userInput.addEventListener('keydown', (e) => {
   const input = e.target.value;
   if (e.key === 'Enter') {
-    togglehideLoader();
+    toggleHideLoader();
     fetch(`/search?query=${input}`)
       .then(res => res.json())
       .then(renderArticles)
-      .then(togglehideLoader);
+      .then(toggleHideLoader);
   }
 });
 
 searchBtn.addEventListener('click', () => {
-  togglehideLoader();
+  toggleHideLoader();
   const input = userInput.value;
   fetch(`/search?query=${input}`)
     .then(res => res.json())
     .then(renderArticles)
-    .then(togglehideLoader);
+    .then(toggleHideLoader);
 });
 
-togglehideLoader();
+toggleHideLoader();
 fetch('/latest')
   .then(res => res.json())
   .then(renderArticles)
-  .then(togglehideLoader);
+  .then(toggleHideLoader);
