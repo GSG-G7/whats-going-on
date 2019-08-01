@@ -17,14 +17,14 @@ const getpublishTimeAgo = (publishDate) => {
 const renderArticles = (details) => {
   const newContainer = create('div');
 
-  details.articles.forEach((e) => {
+  details.articles.forEach((element) => {
     const div = create('div');
     const imageDiv = create('div');
     const contentDiv = create('div');
 
     const image = create('img');
-    image.src = e.urlToImage;
-    image.setAttribute('alt', e.title);
+    image.src = element.urlToImage;
+    image.setAttribute('alt', element.title);
     image.className = 'news__img';
     imageDiv.className = 'news__image';
     imageDiv.appendChild(image);
@@ -33,20 +33,20 @@ const renderArticles = (details) => {
     contentDiv.appendChild(header);
 
     const articleLink = create('a');
-    articleLink.href = e.url;
-    articleLink.textContent = e.title;
+    articleLink.href = element.url;
+    articleLink.textContent = element.title;
     header.appendChild(articleLink);
 
     const dateDiv = create('div');
     const publishTime = create('h4');
     const clockIcon = create('i');
     clockIcon.className = 'far fa-clock';
-    publishTime.textContent = getpublishTimeAgo(e.publishedAt);
+    publishTime.textContent = getpublishTimeAgo(element.publishedAt);
     dateDiv.appendChild(clockIcon);
     dateDiv.appendChild(publishTime);
     contentDiv.appendChild(dateDiv);
     const newsContent = create('p');
-    newsContent.textContent = e.description;
+    newsContent.textContent = element.description;
     contentDiv.appendChild(newsContent);
     contentDiv.className = 'news__details';
 
