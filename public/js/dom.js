@@ -14,8 +14,6 @@ const getpublishTimeAgo = (publishDate) => {
   }
   return `${numOfHours} hours ago`;
 };
-const userInput = selector('search__input');
-const searchBtn = selector('search__btn');
 
 const renderArticles = (details) => {
   const newContainer = create('div');
