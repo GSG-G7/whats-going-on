@@ -79,11 +79,13 @@ searchBtn.addEventListener('click', () => {
   fetch(`/search?query=${input}`)
     .then(res => res.json())
     .then(renderArticles)
-    .then(togglehideLoader);
+    .then(togglehideLoader)
+    .catch(() => window.location.replace(`/search?query=${input}`));
 });
 
 togglehideLoader();
 fetch('/latest')
   .then(res => res.json())
   .then(renderArticles)
-  .then(togglehideLoader);
+  .then(togglehideLoader)
+  .catch(() => window.location.replace('/latest'));
