@@ -1,5 +1,9 @@
 const selector = id => document.querySelector(`#${id}`);
 const create = tag => document.createElement(`${tag}`);
+
+const userInput = selector('search__input');
+const searchBtn = selector('search__btn');
+const form = selector('form');
 const loader = selector('lds-hourglass');
 const toggleHideLoader = () => loader.classList.toggle('hide');
 const msPerYear = 3600000;
@@ -61,25 +65,18 @@ const renderArticles = (details) => {
   selector('news-section').replaceChild(newContainer, selector('container'));
 };
 
-userInput.addEventListener('keydown', (e) => {
-  const input = e.target.value;
-  if (e.key === 'Enter') {
-    toggleHideLoader();
-    fetch(`/search?query=${input}`)
-      .then(res => res.json())
-      .then(renderArticles)
-      .then(toggleHideLoader);
-  }
-});
-
-searchBtn.addEventListener('click', () => {
-  toggleHideLoader();
+function fetchInput() {
   const input = userInput.value;
+  togglehideLoader();
   fetch(`/search?query=${input}`)
     .then(res => res.json())
     .then(renderArticles)
-    .then(toggleHideLoader)
-    .catch(() => window.location.replace(`/search?query=${input}`));
+    .then(togglehideLoader)
+    .catch(() => window.location.replace(`/search?query=${input}`));;
+}
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  fetchInput();
 });
 
 toggleHideLoader();
