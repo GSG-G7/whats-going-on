@@ -1,12 +1,8 @@
-
 const selector = id => document.querySelector(`#${id}`);
 const create = tag => document.createElement(`${tag}`);
-const userInput = selector('search__input');
-const searchBtn = selector('search__btn');
 const loader = selector('lds-hourglass');
 const toggleHideLoader = () => loader.classList.toggle('hide');
 const msPerYear = 3600000;
-
 const getpublishTimeAgo = (publishDate) => {
   const numOfHours = Math.ceil((Date.now() - Date.parse(publishDate)) / msPerYear);
   if (numOfHours >= 24) {
@@ -14,6 +10,8 @@ const getpublishTimeAgo = (publishDate) => {
   }
   return `${numOfHours} hours ago`;
 };
+const userInput = selector('search__input');
+const searchBtn = selector('search__btn');
 
 const renderArticles = (details) => {
   const newContainer = create('div');
