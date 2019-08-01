@@ -1,19 +1,21 @@
-
 const selector = id => document.querySelector(`#${id}`);
 const create = tag => document.createElement(`${tag}`);
+
 const userInput = selector('search__input');
 const searchBtn = selector('search__btn');
 const form = selector('form');
 const loader = selector('lds-hourglass');
-const togglehideLoader = () => loader.classList.toggle('hide');
-
+const toggleHideLoader = () => loader.classList.toggle('hide');
+const msPerYear = 3600000;
 const getpublishTimeAgo = (publishDate) => {
-  const numOfHours = Math.ceil((Date.now() - Date.parse(publishDate)) / 3600000);
+  const numOfHours = Math.ceil((Date.now() - Date.parse(publishDate)) / msPerYear);
   if (numOfHours >= 24) {
     return `${Math.floor(numOfHours / 24)} days ago`;
   }
   return `${numOfHours} hours ago`;
 };
+const userInput = selector('search__input');
+const searchBtn = selector('search__btn');
 
 const renderArticles = (details) => {
   const newContainer = create('div');
@@ -65,7 +67,7 @@ const renderArticles = (details) => {
 
 function fetchInput() {
   const input = userInput.value;
-  togglehideLoader();
+  toggleHideLoader();
   fetch(`/search?query=${input}`)
     .then(res => res.json())
     .then(renderArticles)
@@ -75,12 +77,11 @@ function fetchInput() {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   fetchInput();
-
 });
 
-togglehideLoader();
+toggleHideLoader();
 fetch('/latest')
   .then(res => res.json())
   .then(renderArticles)
-  .then(togglehideLoader)
+  .then(toggleHideLoader)
   .catch(() => window.location.replace('/latest'));
