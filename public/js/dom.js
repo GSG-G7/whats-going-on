@@ -5,9 +5,10 @@ const userInput = selector('search__input');
 const searchBtn = selector('search__btn');
 const loader = selector('lds-hourglass');
 const toggleHideLoader = () => loader.classList.toggle('hide');
+const msPerYear = 3600000;
 
 const getpublishTimeAgo = (publishDate) => {
-  const numOfHours = Math.ceil((Date.now() - Date.parse(publishDate)) / 3600000);
+  const numOfHours = Math.ceil((Date.now() - Date.parse(publishDate)) / msPerYear);
   if (numOfHours >= 24) {
     return `${Math.floor(numOfHours / 24)} days ago`;
   }
